@@ -1,0 +1,339 @@
+/*Variaveis *///I
+
+$corEscura: #3c2520
+$corClara: #957964
+$cinza: #999999
+
+/*Mixins*///I
+@mixin display-flex($justifica, $alinha)
+    display: flex
+    justify-content: $justifica
+    align-items: $alinha
+
+/*Gerais*///I
+*
+    margin: 0
+    padding: 0
+
+body
+    width: 1000px
+    margin: auto
+    background-color: #111111
+    font-family: Arial, Helvetica, sans-serif
+
+.container
+    width: 960px
+    margin: auto
+    @include display-flex(space-between, center)
+
+/*Ids sessoes*///I
+#top
+    width: 100%
+    margin: auto
+    background-color: $corEscura
+    height: 60px
+    line-height: 60px   
+    .container
+        .menu-top
+            width: 49%
+            ul
+                height: 12px
+                list-style: none
+                li
+                    float: left
+                    a
+                        padding: 0 5px
+                        border-right: 1px solid $cinza
+                        color: $cinza
+                        text-decoration: none
+                        font-size: 12px
+                    a.ultimo
+                        border-right: none
+        .social
+            width: 49%
+            display: flex
+            justify-content: flex-end
+            a
+                margin: 5px
+                text-decoration: none
+                width: 35px
+                height: 35px
+                border-radius: 50%
+                color: #ffffff
+                text-align: center
+                line-height: 35px
+                background-color: $corClara
+                &:hover
+                    background-color: #db4a39
+
+#header
+    background-color: #ffffff
+    height: 140px
+    .container
+        height: 140px
+        .l-header
+            color: #333333
+            font-size: 25px
+            letter-spacing: 3px
+            span
+                font-size: 35px
+        .r-header
+            .contato
+                margin-bottom: 3px
+                color: $cinza
+                font-size: 13px
+                letter-spacing: 2px
+            .pesquisa
+                .busca
+                    height: 30px
+                    border: 1px solid $cinza
+                .botao
+                    padding: 0 10px
+                    height: 30px
+                    border: none
+                    background-color: $corEscura
+                    color: #ffffff
+                    border-top-right-radius: 5px
+                    border-bottom-right-radius: 5px
+                input
+                    margin: -3px
+
+#menu-principal
+    background-color: #ffffff
+    height: 68px
+    .container
+        ul
+            width: 100%
+            list-style: none
+            text-transform: uppercase
+            li
+                cursor: pointer
+                height: 68px
+                line-height: 68px
+                padding: 0 22px 
+                background-color: $corEscura
+                float: left
+                border-right: 1px solid $corClara
+                &:last-child
+                    border-bottom-right-radius: 5px
+                    border-top-right-radius: 5px
+                    border: none
+                &:first-child
+                    border-top-left-radius: 5px
+                    border-bottom-left-radius: 5px
+                a
+                    text-decoration: none
+                    color: #ffffff
+                    font-size: 17px
+                &:hover
+                    background-color: $corClara
+            li.ativo
+                background-color: $corClara
+
+#titulo-site
+    height: 195px
+    background-color: #ffffff
+    .container
+        height: 195px
+        flex-direction: column
+        @include display-flex(center, center)
+        .titulo
+            color: $corClara
+            font-size: 30px
+            text-transform: uppercase
+            margin-bottom: 20px
+            margin-top: 50px
+        .subtitulo
+            width: 550px
+            font-size: 16px
+            color: $cinza
+            text-align: center
+            line-height: 30px
+            margin-bottom: 50px
+
+#intro
+    height: 460px
+    padding-bottom: 50px
+    background-color: #ffffff
+    .container
+        height: 460px
+        .l-intro
+            width: 558px
+            height: 450px
+            border: 5px double black
+            background-color: #333333
+            text-align: center
+            line-height: 450px
+            color: #ffffff
+        .r-intro
+            .card-intro
+                width: 372px
+                height: 152px
+                margin: 2.5px
+                background-color: #333333
+                color: #ffffff
+                text-align: center
+                line-height: 152px
+
+#conteudo
+    height: 400px
+    background-color: #ffffff
+    .container
+        height: 400px
+        .titulo-conteudo
+            margin-bottom: 30px
+            display: flex
+            justify-content: center
+            align-items: center
+            .detalhe
+                margin: 3px
+                width: 160px
+                height: 5px
+                background-color: $cinza
+            .title
+                font-size: 20px
+                text-transform: uppercase
+                color: $cinza
+        .servico
+            width: 49%
+            display: flex
+            flex-direction: column
+            .card-servico
+                height: 145px
+                width: 100%
+                display: flex
+                margin-bottom: 10px
+                .imagem-servico
+                    margin-right: 20px
+                    height: 128px
+                    width: 128px
+                    border-radius: 50%
+                    background-color: #333333
+                    color: #ffffff
+                    text-align: center
+                    line-height: 128px
+                .texto-servico
+                    width: 300px
+                    .titulo-texto
+                        font-size: 16px
+                        color: $corEscura
+                        margin-bottom: 17px
+                    .resumo-texto
+                        font-size: 14px
+                        color: $cinza
+                        margin-bottom: 17px
+                        line-height: 20px
+                    .link-texto
+                        a
+                            color:  $corClara
+                            text-decoration: none
+                            font-size: 14px
+        .time
+            width: 49%
+            display: flex
+            flex-direction: column
+            .cards
+                cursor: pointer
+                @include display-flex(space-between, center)
+                .card-time
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    width: 225px
+                    height: 305px
+                    border: 1px solid $cinza
+                    .foto
+                        font-size: 120px
+                        color: black
+                    .nome
+                        font-size: 32px
+                        line-height: 35px
+                        text-align: center
+                    .resumo
+                        margin-top: 15px
+                        text-align: center
+                        font-size: 16px
+                        color: $cinza
+                    &:hover
+                        background-color: $corClara
+                        color: #ffffff
+                        .foto
+                            color: #ffffff
+                        .resumo
+                            color: #ffffff
+
+#footer
+    padding-top: 20px
+    padding-bottom: 20px
+    background-color: #efefef
+    border-top: 5px solid #dddddd
+    height: 375px
+    width: 100%
+    .container
+        .titulo
+            font-size: 22px
+            color: #333333
+            margin-bottom: 12px
+        .textual
+            text-align: justify
+            font-size: 16px
+            color: $cinza
+            margin-bottom: 10px
+        a
+            text-decoration: none
+            color: $corClara
+            font-size: 15px
+        .col_1, .col_2, .col_3
+            flex: 1
+            margin: 15px
+            height: 320px
+        .col_1
+            display: flex
+            flex-direction: column
+            .sobre
+                margin-bottom: 25px
+            .blog
+                .cabecalho
+                    margin-bottom: 10px
+                    color: $cinza
+                    .data
+                        font-size: 10px
+        .col_2
+            .lista
+                ul
+                    list-style: none
+                    li
+                        border-bottom: 1px solid $cinza
+                        padding: 5px
+                        a
+                            text-decoration: none
+                            color: $corClara
+                            font-size: 15px
+        .col_3
+            .newsletter
+                margin-bottom: 10px
+                form
+                    input
+                        height: 35px
+                        width: 100%
+                        margin-bottom: 10px
+                        border-radius: 10px
+                        border: none
+                        background-color: $cinza
+                        padding: 5px
+                    button
+                        background-color: $corEscura
+                        color: #ffffff
+                        border: none
+                        border-radius: 5px
+                        padding: 10px
+                        text-transform: uppercase
+
+#copy
+    display: flex
+    justify-content: space-between
+    align-items: center
+    color: $corClara
+    background-color: $corEscura
+    height: 60px
